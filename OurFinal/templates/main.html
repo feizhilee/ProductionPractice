@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>书籍推荐数据分析平台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="MyraStudio" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+
+
+    <!-- 方法二 -->
+
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="/static/assets/images/favicon.ico">
+
+    <!-- App css -->
+    <link href="/static/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/assets/css/theme.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+
+        <!-- ========== Left Sidebar Start ========== -->
+        {% include 'leftbar.html' %}
+        <!-- Left Sidebar End -->
+
+        {% include 'header.html' %}
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-flex align-items-center justify-content-between">
+                                <h4 class="mb-0 font-size-40" >欢迎来到咱们网站！你可以在这里：</h4>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <div class="avatar-sm float-right">
+                                    </div>
+                                    <h6 class="text-muted text-uppercase mb-0 font-size-40">
+                                        <br>-- 直观地浏览馆内书籍的分布、评分总体状况</br>
+                                        <br>-- 通过查看自己感兴趣的分类或者书籍，你将可以快速地通过点击进入到类别或者书籍的详情页。</br>
+                                        <br>-- 在类别分类中，选择任一分类下的书目，输入关键词搜索，可以查到感兴趣的书目</br>
+                                        <br>-- 在下方的猜你喜欢栏中，你也可以查看相似的书籍，货比三家</br></h6>
+<!--                                    <h3 class="my-3">365</h3>-->
+<!--                                    <button id="btn", class="badge badge-soft-primary mr-1">饼状图</button> <span class="text-muted">查看分类占比</span>-->
+                                 </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+                    <div class="row">
+
+                        <div class="col-lg-8">
+                             <div class="card card-animate">
+                                <div class="card-body">
+                                    <div class="dropdown float-right position-relative">
+                                        <a href="#" class="dropdown-toggle h4 text-muted" data-toggle="dropdown"
+                                            aria-expanded="false">
+<!--                                            <i class="mdi mdi-dots-vertical" ></i>-->
+<!--                                            <i class="mdi" onclick="myfunction()"  ></i>-->
+<!--                                            <button onclick="myfunction()" type="button">button</button>-->
+                                            <img src="./static/assets/images/left.png" width="30" height="30" onclick="myfunctionShowPie()" title="各类数量分布饼状图">
+
+                                            <img src="./static/assets/images/right.png" width="30" height="30" onclick="myfunctionShowBar()"title="各类数据书籍评分图">
+                                        </a>
+                                    </div>
+                                    <h4 class="card-title d-inline-block"></h4>
+
+                                    <div id="jobPie" class="morris-chart" style="width: 800px; height: 320px;"></div>
+                                    <div id="jobbar" class="morris-chart" style="width: 800px; height: 320px; display: none;"></div>
+
+                                    <div class="row text-center mt-4">
+                                        <div class="col-6">
+                                            <h4>19095</h4>
+                                            <p class="text-muted mb-0">书籍总数</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <h4>6</h4>
+                                            <p class="text-muted mb-0">类别总数</p>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div> <!-- end col -->
+
+                        <div class="col-lg-4">
+                             <div class="card card-animate">
+                                <div class="card-body">
+
+                                    <h4 class="card-title d-inline-block mb-3">书籍好评榜</h4>
+
+                                    <div data-simplebar style="max-height: 380px;">
+                                        <a href="#" class="d-flex align-items-center border-bottom py-3">
+                                            <div class="mr-3">
+                                                <img src="/static/assets/images/users/santi.jpg" class="rounded-circle avatar-sm" alt="user">
+                                            </div>
+                                            <div class="w-100">
+                                                <div class="d-flex justify-content-between">
+                                                    <h6 class="mb-1">《三体》</h6>
+                                                    <p class="text-muted font-size-11 mb-0">刘慈欣 著</p>
+                                                </div>
+                                                <p class="text-muted font-size-13 mb-0">“影视仅为一种艺术形式，一切请以原著为准”</p>
+                                            </div>
+                                        </a>
+
+                                        <a href="#" class="d-flex align-items-center border-bottom py-3">
+                                            <div class="mr-3">
+                                                <img src="/static/assets/images/users/hong.jpg" class="rounded-circle avatar-sm" alt="user">
+                                            </div>
+                                            <div class="w-100">
+                                                <div class="d-flex justify-content-between">
+                                                    <h6 class="mb-1">《红楼梦》</h6>
+                                                    <p class="text-muted font-size-11 mb-0">曹雪芹/高鹗 著</p>
+                                                </div>
+                                                <p class="text-muted font-size-13 mb-0">高中语文课堂上永远最爱的这一集</p>
+                                            </div>
+                                        </a>
+
+                                        <a href="#" class="d-flex align-items-center border-bottom py-3">
+                                            <div class="mr-3">
+                                                <img src="/static/assets/images/users/kuangbiao.jpg" class="rounded-circle avatar-sm" alt="user">
+                                            </div>
+                                            <div class="w-100">
+                                                <div class="d-flex justify-content-between">
+                                                    <h6 class="mb-1">《狂飙》</h6>
+                                                    <p class="text-muted font-size-11 mb-0">徐纪周 著</p>
+                                                </div>
+                                                <p class="text-muted font-size-13 mb-0">春节档你看了流浪地球还是满江红还是深海？<br>“我看了狂飙”[doge]</br></p>
+                                            </div>
+                                        </a>
+
+                                        <a href="#" class="d-flex align-items-center border-bottom py-3">
+                                            <div class="mr-3">
+                                                <img src="/static/assets/images/users/baiyexing.jpg" class="rounded-circle avatar-sm" alt="user">
+                                            </div>
+                                            <div class="w-100">
+                                                <div class="d-flex justify-content-between">
+                                                    <h6 class="mb-1">《白夜行》</h6>
+                                                    <p class="text-muted font-size-11 mb-0">东野圭吾 著</p>
+                                                </div>
+                                                <p class="text-muted font-size-13 mb-0">日系小说必看系列！“那一夜，他成长了”</p>
+                                            </div>
+                                        </a>
+
+                                        <a href="#" class="d-flex align-items-center border-bottom py-3">
+                                            <div class="mr-3">
+                                                <img src="/static/assets/images/users/weicheng.jpg" class="rounded-circle avatar-sm" alt="user">
+                                            </div>
+                                            <div class="w-100">
+                                                <div class="d-flex justify-content-between">
+                                                    <h6 class="mb-1">《围城》</h6>
+                                                    <p class="text-muted font-size-11 mb-0">钱钟书 著</p>
+                                                </div>
+                                                <p class="text-muted font-size-13 mb-0">有什么不是围城呢</p>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div> <!-- end col -->
+
+
+
+                    </div>
+                    <!-- end row-->
+
+
+                </div> <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+            {% include 'footer.html' %}
+
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+    <!-- Overlay-->
+    <div class="menu-overlay"></div>
+
+
+    <!-- jQuery  -->
+    <script src="/static/assets/js/jquery.min.js"></script>
+    <script src="/static/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/assets/js/metismenu.min.js"></script>
+    <script src="/static/assets/js/waves.js"></script>
+    <script src="/static/assets/js/simplebar.min.js"></script>
+
+    <!-- Morris Js-->
+    <script src="../plugins/morris-js/morris.min.js"></script>
+    <!-- Raphael Js-->
+    <script src="../plugins/raphael/raphael.min.js"></script>
+
+    <!-- Morris Custom Js-->
+    <script src="/static/assets/pages/dashboard-demo.js"></script>
+
+    <!-- App js -->
+    <script src="/static/assets/js/theme.js"></script>
+
+    <!-- echarts.js-->
+    <script src="/static/assets/js/echarts.min.js"></script>
+
+    <script src="/static/assets/js/Pie.js"></script>
+    <script src="/static/assets/js/Bar.js"></script>
+
+    <script>
+        function  myfunctionShowBar(){
+            var Pie = document.getElementById("jobPie")
+            var bar = document.getElementById("jobbar")
+            var widths = Pie.width;
+            Pie.style.display = "none"
+            bar.style.width = widths
+            bar.style.display = "block"
+
+        }
+        function  myfunctionShowPie(){
+            var Pie = document.getElementById("jobPie")
+            var bar = document.getElementById("jobbar")
+            var widths = bar.width;
+            bar.style.display = "none"
+            Pie.style.width = widths
+            Pie.style.display = "block"
+
+        }
+    </script>
+
+</body>
+
+</html>

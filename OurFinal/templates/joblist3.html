@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>书籍推荐数据分析平台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description"/>
+    <meta content="MyraStudio" name="author"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+     <!-- 搜索功能 -->
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="/static/assets/images/favicon.ico">
+
+    <!-- App css -->
+    <link href="/static/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/assets/css/icons.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/assets/css/theme.min.css" rel="stylesheet" type="text/css"/>
+
+</head>
+
+<body>
+
+<!-- Begin page -->
+<div id="layout-wrapper">
+
+    <!-- ========== Left Sidebar Start ========== -->
+    {% include 'leftbar.html' %}
+    <!-- Left Sidebar End -->
+
+    {% include 'header.html' %}
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+
+
+    <div class="main-content">
+
+        <div class="page-content">
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box d-flex align-items-center justify-content-between">
+                            <h4 class="mb-0 font-size-18">书籍数据管理</h4>
+
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">系统后台</a></li>
+                                    <li class="breadcrumb-item active">书籍数据管理</li>
+                                </ol>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row" style="margin-bottom: 4px;">
+                                    <form class="form-inline">
+                                        书籍名称：<input id="input" type="text">&nbsp;
+<!--                                        <script>-->
+<!--                                            var name=document.getElementById("input").value;-->
+<!--                                        </script>-->
+                                        <button type="button" class="btn btn-primary" onclick="window.location.href='/jobdetail?book_name=' + document.getElementById('input').value;">查找</button> &nbsp;
+
+
+<!--                                        <button type="button" class="btn btn-primary" onclick="javascript:document.location.href='/jobSimilar';">相似度分析</button>-->
+
+
+
+                                    </form>
+                                </div>
+                                <table id="datatable-buttons" class="table table-striped dt-responsive nowrap">
+                                    <thead>
+                                    <tr>
+                                        <th>书籍编号</th>
+                                        <th>书籍名称</th>
+                                        <th>作者名称</th>
+                                        <th>出版社</th>
+                                        <th>价格</th>
+                                        <th>评分</th>
+<!--                                        <th>推荐原因</th>-->
+                                    </tr>
+                                    </thead>
+
+
+                                    <tbody>
+                                    {% for item in jobList3 %}
+                                        <tr>
+                                            <td>{{ item.book_id - 6545}}</td>
+                                            <td><a href="/jobdetail2?book_id={{item.book_id}}">{{ item.book_name }}</a></td>
+                                            <td>{{ item.writer }}</td>
+                                            <td>{{ item.publisher }}</td>
+                                            <td>{{ item.price }}</td>
+                                             <td>{{ item.book_grade }}</td>
+<!--                                            <td>-->
+<!--                                                &lt;!&ndash;详情显示&ndash;&gt;-->
+<!--                                                 <button type="button" class="btn btn-primary" onclick="javascript:document.location.href='/jobdetail2?book_id={{item.book_id}}';">详情</button>-->
+<!--                                            </td>-->
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                    <tfood>
+                                        <tr align="right">
+                                            <td colspan="10">
+                                                <button type="button" id="first" onclick="javascript:document.location.href='/joblist3';">首页</button><!--?book_id={{ 6546 }}-->
+                                                <button type="button" id="previous" onclick="javascript:document.location.href='/pagenumpre3?book_id={{jobList3[0].book_id}}';">上一页</button>
+                                                <button type="button" id="next" onclick="javascript:document.location.href='/pagenumnext3?book_id={{jobList3[0].book_id}}';">下一页</button>
+                                                <button type="button" id="last" onclick="javascript:document.location.href='/pagenumend3?book_id={{9966}}';">尾页</button>
+                                            </td>
+                                        </tr>
+                                    </tfood>
+                                </table>
+
+                            </div> <!-- end card body-->
+                        </div> <!-- end card -->
+                    </div><!-- end col-->
+                </div>
+
+
+            </div>
+            <!-- end row -->
+
+
+        </div> <!-- container-fluid -->
+    </div>
+    <!-- End Page-content -->
+
+    {% include 'footer.html' %}
+
+</div>
+<!-- end main content-->
+
+</div>
+<!-- END layout-wrapper -->
+
+<!-- Overlay-->
+<div class="menu-overlay"></div>
+
+
+<!-- jQuery  -->
+<script src="/static/assets/js/jquery.min.js"></script>
+<script src="/static/assets/js/bootstrap.bundle.min.js"></script>
+<script src="/static/assets/js/metismenu.min.js"></script>
+<script src="/static/assets/js/waves.js"></script>
+<script src="/static/assets/js/simplebar.min.js"></script>
+
+<!-- Morris Js-->
+<script src="../plugins/morris-js/morris.min.js"></script>
+<!-- Raphael Js-->
+<script src="../plugins/raphael/raphael.min.js"></script>
+
+<!-- Morris Custom Js-->
+<script src="/static/assets/pages/dashboard-demo.js"></script>
+
+<!-- App js -->
+<script src="/static/assets/js/theme.js"></script>
+
+<!-- 实现页面翻转 -->
+<script type="text/javascript">
+    let page = $("#text").val();
+    let num = 10;
+    let arr = [];
+    var last = " ";
+    arr = data.slice((page - 1) * num, page * num);
+    $("#first").click(() => {
+				page = 1
+				port()
+				$("#text").val(1)
+			})
+    last = Math.ceil(data.length / num)
+    $("#last").click(() => {
+				page = last
+				port()
+				$("#text").val(last)
+			})
+    $("#next").click(() => {
+                    if (page != last) {
+                        page++
+                        port()
+                        $("#text").val(page)
+                    }
+                })
+
+</script>
+$("#previous").click(() => {
+				if (page > 1) {
+					page--
+					$("#text").val(page)
+					port()
+				}
+			})
+
+
+</body>
+
+</html>
